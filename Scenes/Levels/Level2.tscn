@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/SpriteSheets/Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Actors/EnnemyBarnacle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Backgrounds/backgroundForest.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/Cle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Level1.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Actors/EnnemyLava.tscn" type="PackedScene" id=8]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 2224.0
+margin_bottom = 1088.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -655284, 5, 0, -655280, 5, 0, -655276, 5, 0, -655272, 5, 0, -655268, 5, 0, -655264, 5, 0, -655260, 5, 0, -655256, 5, 0, -393140, 5, 0, -393136, 5, 0, -393132, 5, 0, -393128, 5, 0, -393124, 5, 0, -393120, 5, 0, -393116, 5, 0, -393112, 5, 0, -130996, 5, 0, -130992, 5, 0, -130988, 5, 0, -130984, 5, 0, -130980, 5, 0, -130976, 5, 0, -130972, 5, 0, -130968, 5, 0, 131164, 5, 0, 131168, 5, 0, 131172, 5, 0, 131176, 5, 0, 393292, 4, 0, 393296, 4, 0, 393300, 4, 0, 393308, 5, 0, 393312, 5, 0, 393316, 5, 0, 393320, 5, 0, 655424, 4, 0, 655436, 5, 0, 655440, 5, 0, 655444, 5, 0, 655452, 5, 0, 655456, 5, 0, 655460, 5, 0, 655464, 5, 0, 917536, 4, 0, 917552, 4, 0, 917556, 4, 0, 917580, 5, 0, 917584, 5, 0, 917588, 5, 0, 917608, 5, 0, 1179704, 4, 0, 1179724, 5, 0, 1179728, 5, 0, 1179732, 5, 0, 1179752, 5, 0, 1441816, 4, 0, 1441832, 4, 0, 1441848, 5, 0, 1441852, 4, 0, 1441868, 5, 0, 1441872, 5, 0, 1441876, 5, 0, 1441896, 5, 0, 1572960, 2, 0, 1703992, 5, 0, 1703996, 5, 0, 1704000, 4, 0, 1704004, 4, 0, 1704008, 4, 0, 1704012, 5, 0, 1704016, 5, 0, 1704020, 5, 0, 1704032, 3, 0, 1704040, 5, 0, 1966080, 4, 0, 1966084, 4, 0, 1966088, 4, 0, 1966092, 4, 0, 1966096, 4, 0, 1966136, 5, 0, 1966140, 5, 0, 1966144, 5, 0, 1966148, 5, 0, 1966152, 5, 0, 1966156, 5, 0, 1966160, 5, 0, 1966164, 5, 0, 1966168, 4, 0, 1966172, 4, 0, 1966176, 4, 0, 1966180, 4, 0, 1966184, 5, 0, 2228240, 5, 0, 2228244, 5, 0, 2228248, 5, 0, 2228252, 5, 0, 2228256, 5, 0, 2228260, 5, 0, 2228264, 5, 0, 2228268, 5, 0, 2228272, 5, 0, 2228276, 5, 0, 2228280, 5, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 192, 688 )
+motion/sync_to_physics = false
+
+[node name="EnnemyLava" parent="." instance=ExtResource( 8 )]
+position = Vector2( 704, 1024 )
+
+[node name="EnnemyLava2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 832, 1024 )
+
+[node name="EnnemyLava3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 960, 1024 )
+
+[node name="EnnemyLava4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1088, 1024 )
+
+[node name="EnnemyLava5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1216, 1024 )
+
+[node name="EnnemyLava6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1344, 1024 )
+
+[node name="EnnemyLava7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1472, 1024 )
+
+[node name="EnnemyLava8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1600, 1024 )
+
+[node name="EnnemyLava9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1728, 1024 )
+
+[node name="Cle" parent="." instance=ExtResource( 6 )]
+position = Vector2( 576, 896 )
+
+[node name="Cle2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 832, 640 )
+
+[node name="Cle3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1088, 384 )
+
+[node name="Cle4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1344, 640 )
+
+[node name="Cle5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2112, 256 )
+
+[node name="Cle6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2368, 768 )
+
+[node name="Cle7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2496, 128 )
+
+[node name="Cle8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2880, 384 )
+
+[node name="EnnemyBarnacle" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2112, 768 )
