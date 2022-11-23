@@ -20,56 +20,56 @@ tile_data = PoolIntArray( -655284, 5, 0, -655280, 5, 0, -655276, 5, 0, -655272, 
 position = Vector2( 192, 688 )
 motion/sync_to_physics = false
 
-[node name="EnnemyLava" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 704, 1024 )
 
-[node name="EnnemyLava2" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava2" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 832, 1024 )
 
-[node name="EnnemyLava3" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava3" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 960, 1024 )
 
-[node name="EnnemyLava4" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava4" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1088, 1024 )
 
-[node name="EnnemyLava5" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava5" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1216, 1024 )
 
-[node name="EnnemyLava6" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava6" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1344, 1024 )
 
-[node name="EnnemyLava7" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava7" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1472, 1024 )
 
-[node name="EnnemyLava8" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava8" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1600, 1024 )
 
-[node name="EnnemyLava9" parent="." instance=ExtResource( 8 )]
+[node name="EnnemyLava9" parent="." groups=["groupe_ennemies"] instance=ExtResource( 8 )]
 position = Vector2( 1728, 1024 )
 
-[node name="Cle" parent="." instance=ExtResource( 6 )]
+[node name="Cle" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 576, 896 )
 
-[node name="Cle2" parent="." instance=ExtResource( 6 )]
+[node name="Cle2" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 832, 640 )
 
-[node name="Cle3" parent="." instance=ExtResource( 6 )]
+[node name="Cle3" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 1088, 384 )
 
-[node name="Cle4" parent="." instance=ExtResource( 6 )]
+[node name="Cle4" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 1344, 640 )
 
-[node name="Cle5" parent="." instance=ExtResource( 6 )]
+[node name="Cle5" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 2112, 256 )
 
-[node name="Cle6" parent="." instance=ExtResource( 6 )]
+[node name="Cle6" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 2368, 768 )
 
-[node name="Cle7" parent="." instance=ExtResource( 6 )]
+[node name="Cle7" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 2496, 128 )
 
-[node name="Cle8" parent="." instance=ExtResource( 6 )]
+[node name="Cle8" parent="." groups=["groupe_cles"] instance=ExtResource( 6 )]
 position = Vector2( 2880, 384 )
 
-[node name="EnnemyBarnacle" parent="." instance=ExtResource( 4 )]
+[node name="EnnemyBarnacle" parent="." groups=["groupe_ennemies"] instance=ExtResource( 4 )]
 position = Vector2( 2112, 768 )
