@@ -44,13 +44,20 @@ func _new_game():
 	
 
 func _game_over():
-	# Delete a node from Main: Level{1} node
-	remove_child("Level"+current_level) #ex. "Level1"
 	# Make UI invisible
 	$UI.hide()
+	# Delete a node from Main: Level{1} node
+	remove_child("Level"+current_level) #ex. "Level1"
 	# Add a node to Main: the menuFin_tscn's instance
 	var MenuFin = menuFin_tscn.instance() #Save in a variable a new instance of MenuFin.tscn
 	add_child(MenuFin)
+
+func _player_died():
+	nbrViesPlayer -= 1
+	# update le ProgressBar des vies
+	var ProgressBarVies = get_node("UI/ContainerBarreVies/ProgressBarVies")
+	ProgressBarVies.value = nbrViesPlayer
+	print("vie--")
 
 # Instanciates next level when Player.finished_level()
 func _change_level():
