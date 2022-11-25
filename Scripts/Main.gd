@@ -35,6 +35,7 @@ func _new_game():
 	# Add a node to Main: the Level1.tscn's instance
 	var Level1 = array_niveaux[1-1].instance() #Save in a variable a new instance of Level1.tscn
 	add_child(Level1)
+	print(Level1)
 	# Make UI visible
 	$UICanvas.show()
 	# Set initial UI,
@@ -103,6 +104,6 @@ func _change_level():
 # Update le UI quand le Player touche une cle
 func _update_ui_cles(nbrClesCollected):
 	# update le label cle du UI
-	var LabelNbrClesCollected = get_node("UI/ContainerBarreCles/LabelNbrClesCollected")
+	var LabelNbrClesCollected = get_node("UICanvas/UI/ContainerBarreCles/LabelNbrClesCollected")
 	LabelNbrClesCollected.text = str(nbrClesCollected)
 	print("cle++")

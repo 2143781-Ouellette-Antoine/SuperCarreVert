@@ -10,23 +10,22 @@
 script = ExtResource( 2 )
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="."]
-process_priority = -1
+layer = -1
 
 [node name="Background" parent="BackgroundCanvas" instance=ExtResource( 7 )]
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
-process_priority = 1
 visible = false
 
 [node name="UI" parent="UICanvas" instance=ExtResource( 4 )]
 
 [node name="MenuFinCanvas" type="CanvasLayer" parent="."]
-process_priority = 2
+layer = 2
 visible = false
 
 [node name="MenuFin" parent="MenuFinCanvas" instance=ExtResource( 6 )]
 
 [node name="MenuPrincipalCanvas" type="CanvasLayer" parent="."]
-process_priority = 3
+layer = 3
 
 [node name="MenuPrincipal" parent="MenuPrincipalCanvas" instance=ExtResource( 1 )]
