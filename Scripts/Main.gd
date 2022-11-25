@@ -1,48 +1,49 @@
 extends Node
 
-# Allows to link Scenes.tscn files
-export(PackedScene) var menuPrincipal_tscn
-export(PackedScene) var level1_tscn
-export(PackedScene) var level2_tscn
-export(PackedScene) var menuFin_tscn
 # Variables
-var nbrViesPlayer
+var nbr_vies_player
 var current_level
-var nbrDeNiveaux = 2
-var array_niveaux = [level1_tscn, level2_tscn]
+var array_niveaux = [preload("res://Scenes/Levels/Level1.tscn"), preload("res://Scenes/Levels/Level2.tscn")]
+var nbr_de_niveaux = array_niveaux.size()
 
 func _ready():
 	### Listen ################################################
-	var ButtonNewGame = get_node("MenuPrincipal/ButtonNewGame")
+	var ButtonNewGame = get_node("MenuPrincipalCanvas/MenuPrincipal/ButtonNewGame")
 	# Listen to ButtonNewGame.pressed()
 	ButtonNewGame.connect("pressed", self, "_new_game")
+	# Listen to ButtonRecommencer.pressed()
+	var ButtonRecommencer = get_node("MenuFinCanvas/MenuFin/ButtonRecommencer")
+	ButtonRecommencer.connect("pressed", self, "_new_game")
 	### Initial Setup #########################################
-	$UI.hide()
+	# Hide a node from Main: UICanvas node
+	$UICanvas.hide()
+	$MenuFinCanvas.hide()
+	$BackgroundCanvas.show()
+	$MenuPrincipalCanvas.show()
 
 # _new_game() triggered by boutton presse.
 func _new_game():
 	print("le boutton a ete presse")
 	# reset nbrViesPlayer
-	nbrViesPlayer = 3
+	nbr_vies_player = 3
 	# reset au level 1
 	current_level = 1
-	# Delete a node from Main: MenuPrincipal node
-	remove_child($MenuPrincipal)
-	# Delete a node from Main: MenuFin node
-	remove_child($MenuFin)
-	# Add a node to Main: the level1_tscn's instance
-	var Level1 = level1_tscn.instance() #Save in a variable a new instance of Level1.tscn
+	# Hide a node from Main: MenuPrincipalCanvas node
+	$MenuPrincipalCanvas.hide()
+	# Hide a node from Main: MenuFinCanvas node
+	$MenuFinCanvas.hide()
+	# Add a node to Main: the Level1.tscn's instance
+	var Level1 = array_niveaux[1-1].instance() #Save in a variable a new instance of Level1.tscn
 	add_child(Level1)
 	# Make UI visible
-	$UI.show()
-	# Set initial UI
+	$UICanvas.show()
+	# Set initial UI,
 	# update le ProgressBar des vies
-	var ProgressBarVies = get_node("UI/ContainerBarreVies/ProgressBarVies")
-	ProgressBarVies.value = nbrViesPlayer
+	var ProgressBarVies = get_node("UICanvas/UI/ContainerBarreVies/ProgressBarVies")
+	ProgressBarVies.value = nbr_vies_player
 	_update_ui_cles(0)
 	### Listen ################################################
 	var Player = get_node("Level1/Player")
-	# Listen to Player.game_over()
 	#Player.connect("game_over", self, "_game_over")
 	# Listen to Player.died()
 	Player.connect("died", self, "_player_died")
@@ -53,23 +54,21 @@ func _new_game():
 
 func _game_over():
 	# Make UI invisible
-	$UI.hide()
+	$UICanvas.hide()
 	# Delete a node from Main: Level{1} node
 	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
-	# Add a node to Main: the menuFin_tscn's instance
-	var MenuFin = menuFin_tscn.instance() #Save in a variable a new instance of MenuFin.tscn
-	add_child(MenuFin)
-	get_node("MenuFin/TitreFin").text = "Vous êtes mort!"
-	var ButtonRecommencer = get_node("MenuFin/ButtonRecommencer")
-	# Listen to ButtonNewGame.pressed()
-	ButtonRecommencer.connect("pressed", self, "_new_game")
+	# Show a node to Main: the menuFin_tscn's instance
+	$MenuFinCanvas.show()
+	# Change text of Title
+	get_node("MenuFinCanvas/MenuFin/TitreFin").text = "Vous êtes mort!"
+	#x Listen to ButtonRecommencer.pressed()
 
 func _player_died():
-	if nbrViesPlayer-1 > 0:
-		nbrViesPlayer -= 1
+	if nbr_vies_player-1 > 0:
+		nbr_vies_player -= 1
 		# update le ProgressBar des vies
-		var ProgressBarVies = get_node("UI/ContainerBarreVies/ProgressBarVies")
-		ProgressBarVies.value = nbrViesPlayer
+		var ProgressBarVies = get_node("UICanvas/UI/ContainerBarreVies/ProgressBarVies")
+		ProgressBarVies.value = nbr_vies_player
 		print("vie--")
 	else:
 		_game_over()
@@ -80,21 +79,21 @@ func _change_level():
 	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
 	# if (tous les niveaux completes): MenuFin.
 	# else: spawn current_level+1
-	if current_level+1 > nbrDeNiveaux:
+	if current_level+1 > nbr_de_niveaux:
 		# Make UI invisible
-		$UI.hide()
-		# Add a node to Main: the menuFin's instance
-		var MenuFin = menuFin_tscn.instance() #Save in a variable a new instance of MenuFin.tscn
-		add_child(MenuFin)
-		get_node("MenuFin/TitreFin").text = "Victoire!"
-		var ButtonRecommencer = get_node("MenuFin/ButtonRecommencer")
-		# Listen to ButtonNewGame.pressed()
+		$UICanvas.hide()
+		# Show a node to Main: the MenuFin.tscn's instance
+		$MenuFinCanvas.show()
+		# Change text of Title
+		get_node("MenuFinCanvas/MenuFin/TitreFin").text = "Victoire!"
+		# Listen to ButtonRecommencer.pressed()
+		var ButtonRecommencer = get_node("MenuFinCanvas/MenuFin/ButtonRecommencer")
 		ButtonRecommencer.connect("pressed", self, "_new_game")
 	else:
-		# Add a node to Main: the level2_tscn's instance
-		#var nom_next_level = "level" + str(current_level+1) + "_tscn"
-		var NextLevel = level2_tscn.instance() #Save in a variable a new instance of Level{2}.tscn
 		current_level += 1
+		print("Niveau "+current_level)
+		# Add a node to Main: the Level2.tscn's instance
+		var NextLevel = array_niveaux[current_level-1].instance() #Save in a variable a new instance of Level{2}.tscn
 		add_child(NextLevel)
 		# Listen to Level{2}.finished_level()
 		NextLevel.connect("finished_level", self, "_change_level")
