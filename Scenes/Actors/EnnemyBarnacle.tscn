@@ -6,6 +6,7 @@
 extents = Vector2( 35, 52 )
 
 [node name="EnnemyBarnacle" type="Area2D"]
+collision_layer = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

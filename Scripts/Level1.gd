@@ -23,6 +23,9 @@ func _on_Cle_body_entered(body):
 	if body.name != "Player":
 		return
 	nbr_cles_collected += 1
+	if nbr_cles_collected == 8:
+		$Porte/SpriteClosed.hide()
+		$Porte/SpriteOpened.show()
 	emit_signal("cle_collected", nbr_cles_collected)
 
 func _on_Ennemy_body_entered(body):
