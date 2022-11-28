@@ -28,7 +28,7 @@ func _on_Cle_body_entered(body):
 func _on_Ennemy_body_entered(body):
 	if body.name != "Player":
 		return
-	get_node("Player").emit_signal("died")
+	get_node("Player").emit_signal("hurt")
 
 func _on_Porte_body_entered(body):
 	if body.name != "Player":

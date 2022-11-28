@@ -46,8 +46,8 @@ func _new_game():
 	### Listen ################################################
 	var Player = get_node("Level1/Player")
 	#Player.connect("game_over", self, "_game_over")
-	# Listen to Player.died()
-	Player.connect("died", self, "_player_died")
+	# Listen to Player.hurt()
+	Player.connect("hurt", self, "_player_hurt")
 	# Listen to Level1.finished_level()
 	Level1.connect("finished_level", self, "_change_level")
 	# Listen to Level1.cle_collected(nbr_cles_collected)
@@ -64,7 +64,7 @@ func _game_over():
 	get_node("MenuFinCanvas/MenuFin/TitreFin").text = "Vous êtes mort!"
 	#x Listen to ButtonRecommencer.pressed()
 
-func _player_died():
+func _player_hurt():
 	if nbr_vies_player-1 > 0:
 		nbr_vies_player -= 1
 		# update le ProgressBar des vies
@@ -74,10 +74,13 @@ func _player_died():
 	else:
 		_game_over()
 
-# Instanciates next level when Player.finished_level()
+# Instanciates Next_Level when Player.finished_level()
 func _change_level():
+	##CLEAN OLD LEVEL##
 	# Delete a node from Main: Level{1} node
 	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
+	_update_ui_cles(0)
+	
 	# if (tous les niveaux completes): MenuFin.
 	# else: spawn current_level+1
 	if current_level+1 > nbr_de_niveaux:
@@ -92,10 +95,13 @@ func _change_level():
 		ButtonRecommencer.connect("pressed", self, "_new_game")
 	else:
 		current_level += 1
-		print("Niveau "+current_level)
+		print("Niveau "+str(current_level))
 		# Add a node to Main: the Level2.tscn's instance
 		var NextLevel = array_niveaux[current_level-1].instance() #Save in a variable a new instance of Level{2}.tscn
 		add_child(NextLevel)
+		# Listen to Player.hurt()
+		var Player = get_node("Level"+str(current_level)+"/Player")
+		Player.connect("hurt", self, "_player_hurt")
 		# Listen to Level{2}.finished_level()
 		NextLevel.connect("finished_level", self, "_change_level")
 		# Listen to Level{2}.cle_collected(nbr_cles_collected)
