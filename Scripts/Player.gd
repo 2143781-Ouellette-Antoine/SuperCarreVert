@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal game_over
-signal died
+signal hurt
 
 var speed = 600
 var jump_speed = 1500
