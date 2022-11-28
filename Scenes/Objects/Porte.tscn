@@ -6,7 +6,6 @@
 [node name="Porte" type="Area2D"]
 
 [node name="SpriteOpened" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 2 )
 
 [node name="SpriteClosed" type="Sprite" parent="."]

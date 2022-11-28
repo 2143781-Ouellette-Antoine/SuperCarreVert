@@ -33,4 +33,5 @@ func _on_Ennemy_body_entered(body):
 func _on_Porte_body_entered(body):
 	if body.name != "Player":
 		return
-	emit_signal("finished_level")
+	if nbr_cles_collected == 8:
+		emit_signal("finished_level")
