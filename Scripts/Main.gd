@@ -44,7 +44,7 @@ func _new_game():
 	_update_ui_cles(0)
 	### Listen ################################################
 	var Player = get_node("Level1/Player")
-	#Player.connect("game_over", self, "_game_over")
+	Player.connect("game_over", self, "_game_over")
 	# Listen to Player.hurt()
 	Player.connect("hurt", self, "_player_hurt")
 	# Listen to Level1.finished_level()
@@ -61,7 +61,6 @@ func _game_over():
 	$MenuFinCanvas.show()
 	# Change text of Title
 	get_node("MenuFinCanvas/MenuFin/TitreFin").text = "Vous êtes mort!"
-	#x Listen to ButtonRecommencer.pressed()
 
 func _player_hurt():
 	if nbr_vies_player-1 > 0:

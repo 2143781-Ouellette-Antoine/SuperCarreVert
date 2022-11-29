@@ -18,7 +18,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	sprite_x = $Sprite.texture.get_width()/2
 	sprite_y = $Sprite.texture.get_height()/2
-	$Attack/HitAttack/CollisionShape2D.set_deferred("disabled", true)
+	$Attack/HitAttack/CollisionShapeAttack.set_deferred("disabled", true)
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -39,11 +39,9 @@ func _input(event):
 		velocity.y = -jump_speed
 	if event.is_action_pressed(("ui_accept")):
 		$Attack/AttackTimer.start()
-		$Attack/HitAttack/CollisionShape2D.disabled = false
+		$Attack/HitAttack/CollisionShapeAttack.disabled = false
 		$Attack.play("attack")
 		$Attack.frame = 0
 
-
-
 func _on_Timer_timeout():
-	$Attack/HitAttack/CollisionShape2D.disabled = true
+	$Attack/HitAttack/CollisionShapeAttack.disabled = true

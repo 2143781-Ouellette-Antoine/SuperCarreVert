@@ -14,10 +14,6 @@ func _ready():
 	var array_cles = get_tree().get_nodes_in_group("groupe_cles")
 	for cle in array_cles:
 		cle.connect("body_entered", self, "_on_Cle_body_entered")#returns the body
-	# Listen to Ennemy.body_entered(body)
-	var array_ennemies = get_tree().get_nodes_in_group("groupe_ennemies")
-	for ennemy in array_ennemies:
-		ennemy.connect("body_entered", self, "_on_Ennemy_body_entered")#returns the body
 
 func _on_Cle_body_entered(body):
 	if body.name != "Player":
@@ -27,12 +23,6 @@ func _on_Cle_body_entered(body):
 		$Porte/SpriteClosed.hide()
 		$Porte/SpriteOpened.show()
 	emit_signal("cle_collected", nbr_cles_collected)
-
-func _on_Ennemy_body_entered(body):
-	if body.name != "Player":
-		return
-	print("player hurt!")
-	get_node("Player").emit_signal("hurt")
 
 func _on_Porte_body_entered(body):
 	if body.name != "Player":

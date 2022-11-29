@@ -18,5 +18,4 @@ texture = ExtResource( 1 )
 position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="." to="." method="_on_Barnacle_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_EnnemyBarnacle_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Barnacle_body_entered"]
