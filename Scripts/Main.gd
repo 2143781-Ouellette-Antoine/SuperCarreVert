@@ -47,8 +47,9 @@ func _new_game():
 	Player.connect("game_over", self, "_game_over")
 	# Listen to Player.hurt()
 	Player.connect("hurt", self, "_player_hurt")
-	# Listen to Level1.finished_level()
-	Level1.connect("finished_level", self, "_change_level")
+	# Listen to Level1.Porte.finished_level()
+	var Porte = get_node("Level1/Porte")
+	Porte.connect("finished_level", self, "_change_level")
 	# Listen to Level1.cle_collected(nbr_cles_collected)
 	Level1.connect("cle_collected", self, "_update_ui_cles")#returns nbr_cles_collected
 
