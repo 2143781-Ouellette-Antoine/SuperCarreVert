@@ -19,6 +19,9 @@ _data = {
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -106,4 +109,4 @@ rotation = -0.00773733
 loop = false
 script = ExtResource( 11 )
 
-[node name="EnnemySaw" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]
+[node name="EnnemySaw" parent="Path2D/PathFollow2D" groups=["groupe_ennemies"] instance=ExtResource( 3 )]
