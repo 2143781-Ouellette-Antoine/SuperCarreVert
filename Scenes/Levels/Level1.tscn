@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/SpriteSheets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Actors/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Scenes/Actors/EnnemyLava.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Background2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Backgrounds/handpainted_26.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/PathSaw.gd" type="Script" id=11]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1473, 903, 0, 0, 0, 0, 2116, 898 )
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 7 )
@@ -26,9 +32,6 @@ motion/sync_to_physics = false
 
 [node name="EnnemyBarnacle" parent="." groups=["groupe_ennemies"] instance=ExtResource( 4 )]
 position = Vector2( 832, 896 )
-
-[node name="EnnemySaw" parent="." groups=["groupe_ennemies"] instance=ExtResource( 3 )]
-position = Vector2( 2112, 896 )
 
 [node name="EnnemyBarnacle2" parent="." groups=["groupe_ennemies"] instance=ExtResource( 4 )]
 position = Vector2( 2880, 896 )
@@ -93,3 +96,14 @@ margin_top = -1016.0
 margin_right = 8283.0
 margin_bottom = 1144.0
 texture = ExtResource( 10 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1473, 903 )
+rotation = -0.00773733
+loop = false
+script = ExtResource( 11 )
+
+[node name="EnnemySaw" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]

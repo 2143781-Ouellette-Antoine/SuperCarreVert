@@ -18,7 +18,6 @@ func _ready():
 	# Hide a node from Main: UICanvas node
 	$UICanvas.hide()
 	$MenuFinCanvas.hide()
-	$BackgroundCanvas.show()
 	$MenuPrincipalCanvas.show()
 
 # _new_game() triggered by boutton presse.

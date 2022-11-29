@@ -1,1 +1,2 @@
-extends KinematicBody2D
+extends Area2D
+
