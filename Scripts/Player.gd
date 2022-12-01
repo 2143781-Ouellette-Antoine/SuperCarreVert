@@ -7,6 +7,7 @@ signal hit
 var speed = 600
 var jump_speed = 1500
 var gravity = 4500
+var direction = 0
 
 var velocity = Vector2.ZERO
 
@@ -19,14 +20,28 @@ func _ready():
 	sprite_x = $Sprite.texture.get_width()/2
 	sprite_y = $Sprite.texture.get_height()/2
 	$Attack/HitAttack/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite.play("stand")
 
 func _physics_process(delta):
 	velocity.x = 0
 	
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
+		if direction != -1:
+			direction = -1
+			$Attack.position.x = $Attack.position.x * direction
+			$Attack.flip_h = true
+			$AnimatedSprite.flip_h = true
+			$AnimatedSprite.play("run")
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
+		if direction != 1:
+			$Attack.position.x = $Attack.position.x * direction
+			direction = 1
+			$Attack.flip_h = false
+			$AnimatedSprite.flip_h = false
+			$AnimatedSprite.play("run")
+			
 	velocity.y += gravity*delta
 	
 	move_and_slide(velocity)
