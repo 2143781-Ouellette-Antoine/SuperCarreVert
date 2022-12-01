@@ -380,7 +380,7 @@ flip_v = true
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/HitAttack"]
+[node name="CollisionShapeAttack" type="CollisionShape2D" parent="Attack/HitAttack"]
 position = Vector2( 0.580818, -5.37259 )
 rotation = 1.5708
 shape = SubResource( 48 )
