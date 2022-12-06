@@ -22,6 +22,7 @@ func _ready():
 
 # _new_game() triggered by boutton presse.
 func _new_game():
+	$MenuFinCanvas/MenuFin/Background.hide()
 	# Delete a node from Main: Level{1} node
 	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
 	print("le boutton a ete presse")
@@ -87,6 +88,7 @@ func _change_level():
 		$UICanvas.hide()
 		# Show a node to Main: the MenuFin.tscn's instance
 		$MenuFinCanvas.show()
+		$MenuFinCanvas/MenuFin/Background.show()
 		# Change text of Title
 		get_node("MenuFinCanvas/MenuFin/TitreFin").text = "Victoire!"
 		# Listen to ButtonRecommencer.pressed()
