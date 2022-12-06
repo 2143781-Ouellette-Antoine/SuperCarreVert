@@ -22,6 +22,8 @@ func _ready():
 
 # _new_game() triggered by boutton presse.
 func _new_game():
+	# Delete a node from Main: Level{1} node
+	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
 	print("le boutton a ete presse")
 	# reset nbrViesPlayer
 	nbr_vies_player = 3
@@ -55,8 +57,6 @@ func _new_game():
 func _game_over():
 	# Make UI invisible
 	$UICanvas.hide()
-	# Delete a node from Main: Level{1} node
-	remove_child(get_node("Level"+str(current_level))) #ex. "Level1"
 	# Show a node to Main: the menuFin_tscn's instance
 	$MenuFinCanvas.show()
 	# Change text of Title

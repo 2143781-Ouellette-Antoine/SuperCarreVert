@@ -21,6 +21,7 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 4.0

@@ -21,4 +21,3 @@ layer = 2
 layer = 3
 
 [node name="MenuPrincipal" parent="MenuPrincipalCanvas" instance=ExtResource( 1 )]
-visible = true
