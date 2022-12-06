@@ -12,7 +12,6 @@ config_version=4
 
 config/name="SuperCarreVert"
 run/main_scene="res://Scenes/Main.tscn"
-config/icon="res://Assets/Sprites/slimeBlock.png"
 
 [display]
 

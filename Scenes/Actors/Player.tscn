@@ -3,62 +3,62 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/oak_woods_v1.0/character/char_blue.png" type="Texture" id=4]
 
-[sub_resource type="AtlasTexture" id=123]
+[sub_resource type="AtlasTexture" id=151]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=124]
+[sub_resource type="AtlasTexture" id=152]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 56, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=125]
+[sub_resource type="AtlasTexture" id=153]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 112, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=126]
+[sub_resource type="AtlasTexture" id=154]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 168, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=127]
+[sub_resource type="AtlasTexture" id=155]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 224, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=128]
+[sub_resource type="AtlasTexture" id=156]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 280, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=129]
+[sub_resource type="AtlasTexture" id=157]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 336, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=130]
+[sub_resource type="AtlasTexture" id=158]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 392, 280, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=131]
+[sub_resource type="AtlasTexture" id=159]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 336, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=132]
+[sub_resource type="AtlasTexture" id=160]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 56, 336, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=133]
+[sub_resource type="AtlasTexture" id=161]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 112, 336, 56, 56 )
 
-[sub_resource type="AtlasTexture" id=134]
+[sub_resource type="AtlasTexture" id=162]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 168, 336, 56, 56 )
@@ -260,7 +260,7 @@ region = Rect2( 280, 0, 56, 56 )
 
 [sub_resource type="SpriteFrames" id=104]
 animations = [ {
-"frames": [ SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ) ],
+"frames": [ SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ) ],
 "loop": false,
 "name": "dead",
 "speed": 10.0
