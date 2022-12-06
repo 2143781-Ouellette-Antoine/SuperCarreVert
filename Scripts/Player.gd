@@ -32,6 +32,7 @@ func _physics_process(delta):
 			direction = -1
 			#$Attack.flip_h = true
 			$AreaAttack/CollisionAttack.position.x = -53.75
+			$ParticuleSword.position.x = -89
 			$AnimatedSprite.flip_h = true
 		if !isJump:
 			$AnimatedSprite.play("run")
@@ -41,6 +42,7 @@ func _physics_process(delta):
 			direction = 1
 			#$Attack.flip_h = false
 			$AreaAttack/CollisionAttack.position.x = 53.75
+			$ParticuleSword.position.x = 89
 			$AnimatedSprite.flip_h = false
 		if !isJump:
 			$AnimatedSprite.play("run")
@@ -53,10 +55,9 @@ func _physics_process(delta):
 		$AnimatedSprite.play("hit")
 		isAttack = true
 		
-			
 	velocity.y += gravity*delta
 	
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
 	
 	position.x = clamp(position.x, $Camera2D.limit_left, $Camera2D.limit_right)
 	position.y = clamp(position.y, $Camera2D.limit_top, $Camera2D.limit_bottom)
@@ -105,3 +106,13 @@ func _on_Player_hurt():
 		hide()
 		yield(get_tree().create_timer(0.02), "timeout")
 		show()
+
+
+func _on_AreaAttack_area_entered(area):
+	$ParticuleSword.emitting = true
+
+
+func _on_AreaAttack_body_entered(body):
+	if body.name == "Player":
+		return
+	$ParticuleSword.emitting =true

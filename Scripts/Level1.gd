@@ -19,7 +19,6 @@ func _ready():
 	for ennemy in array_ennemies:
 		ennemy.connect("body_entered", self, "_on_Ennemy_body_entered")#returns the body
 
-		
 func _on_Cle_body_entered(body):
 	if body.name != "Player":
 		return
@@ -29,8 +28,8 @@ func _on_Cle_body_entered(body):
 		$Porte/SpriteOpened.show()
 	emit_signal("cle_collected", nbr_cles_collected)
 
-func _on_Ennemy_body_entered(body):
 
+func _on_Ennemy_body_entered(body):
 	if body.name != "Player":
 		return
 	else:
@@ -42,3 +41,5 @@ func _on_Porte_body_entered(body):
 	if nbr_cles_collected == 8:
 		emit_signal("finished_level")
 
+
+	
