@@ -6,6 +6,7 @@
 radius = 58.0345
 
 [node name="EnnemyLava" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
@@ -13,5 +14,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1664, 1888, 480, 448 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -1.90735e-06, -1.90735e-06 )
+scale = Vector2( 6.4, 6.4 )
+polygon = PoolVector2Array( -10, 10, -10, -8.59375, -5.9375, -7.34375, -3.28125, -7.34375, 3.28125, -10, 6.875, -10, 10, -8.90625, 10, 10 )
