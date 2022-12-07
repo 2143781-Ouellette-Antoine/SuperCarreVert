@@ -51,7 +51,7 @@ func _physics_process(delta):
 		if !isAttack && !isHurt && !isDead && !isJump:
 			$AnimatedSprite.play("stand")
 	
-	if Input.is_action_pressed("ui_accept") && !isDead:
+	if Input.is_action_pressed("ui_accept") && !isDead && !isHurt:
 		$AnimatedSprite.play("hit")
 		isAttack = true
 		
